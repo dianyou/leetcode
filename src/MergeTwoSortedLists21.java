@@ -15,7 +15,7 @@ public class MergeTwoSortedLists21 {
         if(l2 == null)
         	return l1;
         
-        while(l1!=null && l2 != null){
+        while(l1!=null && l2 != null){ 
             if(l1.val<=l2.val)
             {
             	results.next=new ListNode(l1.val);
