@@ -27,7 +27,7 @@ public class WordLadderII126 {
     	
     	Queue<String> match = new LinkedList<String>();
     	Map<String,Integer> level = new HashMap<String,Integer>();//记录每个变换的层数
-    	Map<String,String> recallHM = new HashMap<String,String>();//回溯；key存储当前字符串；value存储pre的字符串
+    	Map<String,List<String>> recallHM = new HashMap<String,List<String>>();//回溯；key存储当前字符串；value存储pre的字符串
     	Set<String> wordSet = new HashSet<>(wordList);
     	if(wordSet.contains(beginWord))//剔除原集合中有首元素的情况
     	{
@@ -52,10 +52,12 @@ public class WordLadderII126 {
     				if(wordSet.contains(changed))
     				{
     					//System.out.println(changed+"::head::"+head+"::"+level.get(head));
+    					//recallHM中添加记录
+    					
     					recallHM.put(changed, head);
     					if(changed.equals(endWord))
     					{
-    						results.add(recall(recallHM,beginWord,endWord));
+    						//results.add(recall(recallHM,beginWord,endWord));
     						flag = true;
     					}
     					
