@@ -80,7 +80,7 @@ public class SetMatrixZeroes {
     	for(int j=0;j<matrix[0].length;j++)
     	{
     		matrix[a][j] = 0;
-    	}
+    	} 
     	
     }
     public static void main(String args[])
