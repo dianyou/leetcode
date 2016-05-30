@@ -120,7 +120,7 @@ public class WordLadder127 {
     						return level.get(head)+1;
     					
     					match.add(changed.toString());
-    					level.put(changed.toString(),level.get(head)+1);
+    					level.put(changed,level.get(head)+1);
         				wordSet.remove(changed);
     				}
     				
