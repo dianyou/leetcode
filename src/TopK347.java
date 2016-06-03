@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class P347 {
+public class TopK347 {
     public List<Integer> topKFrequent(int[] nums, int k) {
 	        
         Map<Integer, Integer> map = new HashMap<>();  
@@ -65,7 +65,7 @@ public class P347 {
     	
     	int k = Integer.parseInt(sc.nextLine());
     	
-    	P347 test = new P347();
+    	TopK347 test = new TopK347();
     	List<Integer> list = test.topKFrequent(nums, 2);
     	System.out.println(list.toString());
     }
