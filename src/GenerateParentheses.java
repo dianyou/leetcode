@@ -17,7 +17,7 @@ public class GenerateParentheses {
     	String s = "";//记录字符串
     	int left =0,right=0;
     	List<String> results = new ArrayList<String>();
-    	generate(n,left,right,s,results); 	
+    	generate(n,left,right,s,results);
     	return results;
     }
     private void generate(int n,int left,int right,String s,List<String> list)
