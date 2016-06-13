@@ -49,3 +49,5 @@ for (j=n;j>=1;j--) {
 
 #较慢
 tr -s "\t| " "\n" <words.txt|sort |uniq -c | sort -k1 -r|awk '{print $2,$1}'
+
+grep -Eo "[a-z]*" words.txt|sort -k1|uniq -c|sort -r|awk '{print $2" "$1}'
