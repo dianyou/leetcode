@@ -1,4 +1,8 @@
-
+/**
+ * 
+ * @author Gavin
+ * 2016-06-07
+ */
 public class SearchInRotatedSortedArray{
     public int search(int[] nums,int target)
     {

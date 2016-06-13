@@ -103,3 +103,88 @@ END
 # limit用法：select * from table limit m,n
 位置m行的位置，返回第m+1行到m+n行的记录；如果n取值-1，则返回m+1行到最后；
 select * from table limit n 等效于 select * from table limit 0,n; 返回前n条记录
+
+176. Second Highest Salary
+#外层包一个select起到ifnull的作用
+select (
+	select distinct Salary
+	from Employee
+	order by Salary desc
+	limit 1,1
+) SecondHighestSalary;
+#或者使用聚合函数
+SELECT MAX(Salary) SecondHighestSalary
+FROM Employee
+WHERE Salary < (SELECT MAX(Salary) FROM Employee);
+
+262. Trips and Users
+
+select t.Request_at Day,
+    Round(sum(IF(t.Status='completed',0,1))/count(1),2) 'Cancellation Rate'
+from Trips t left join Users u on t.Client_Id = u.Users_Id  and u.Role='client'
+where  t.Request_at>='2013-10-01' and t.Request_at<='2013-10-03'and u.Banned = 'No'
+group by t.Request_at;
+###############这里，inner join和left join功能一样
+select t.Request_at Day,
+    Round(sum(IF(t.Status='completed',0,1))/count(1),2) 'Cancellation Rate'
+from Trips t,Users u
+where  t.Request_at>='2013-10-01' and t.Request_at<='2013-10-03'and u.Banned = 'No'
+        and t.Client_Id = u.Users_Id  and u.Role='client'
+group by t.Request_at;
+######################以下会出现空，无法计算rate为0的情况
+select Day, Round(counter2/counter1,2) 'Cancellation Rate'
+from (
+select t.Request_at Day,count(1) counter1
+from Trips t,Users u
+where  t.Request_at>='2013-10-01' and t.Request_at<='2013-10-03'and u.Banned = 'No'
+        and t.Client_Id = u.Users_Id  and u.Role='client'
+				group by t.Request_at) temp1,(
+		select t.Request_at Day,count(1) counter2
+		from Trips t,Users u
+		where  t.Request_at>='2013-10-01' and t.Request_at<='2013-10-03'and u.Banned = 'No'
+		        and t.Client_Id = u.Users_Id  and u.Role='client' and t.Status !='completed'
+		group by t.Request_at) temp2
+
+175. Combine Two Tables
+#考察的left join
+select p.FirstName FirstName, p.LastName LastName, a.City City, a.State State
+from Person p left join Adderss a
+on p.PersonId = a.PersonId
+#另：
+SELECT p.FirstName, p.LastName, a.City, a.State
+FROM Person p LEFT OUTER JOIN Address a USING (PersonId);
+
+185. Department Top Three Salaries
+##1
+select d.Name Department, e1.Name Employee, e1.Salary Salary
+from Employee e1,Department d
+where e1.DepartmentId = d.Id and
+(select count(distinct e2.Salary)
+from Employee e2
+where e2.DepartmentId = e1.DepartmentId and e2.Salary>e1.Salary
+)<3
+##2,稍快一些
+SELECT  d.name as Department, e.name Employee,e.salary Salary
+FROM Employee e JOIN Department d ON e.departmentid = d.id
+and
+    (SELECT   COUNT(DISTINCT (salary))
+     FROM
+            Employee
+     WHERE
+            departmentid = e.departmentid
+     AND    salary > e.salary
+     ) < 3
+ORDER BY d.id ASC , e.salary DESC
+##使用变量，时间复杂度最低
+SELECT d.NAME AS Department, t.NAME AS Employee, Salary FROM (
+  SELECT    DepartmentId,
+            NAME,
+            Salary,
+            @rank := IF(@prevDeptId != DepartmentId, 1,
+                         IF(@prevSalary = Salary, @rank, @rank + 1) ) AS Rank,
+            @prevDeptId := DepartmentId AS prevDeptId,
+            @prevSalary := Salary AS prevSalary
+  FROM      Employee e, (SELECT @rank := 0, @prevDeptId := NULL, @prevSalary := NULL) r
+  ORDER BY  DepartmentId ASC, Salary DESC
+) t INNER JOIN Department d ON t.DepartmentId = d.ID
+WHERE t.rank <= 3
