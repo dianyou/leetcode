@@ -21,7 +21,6 @@ public class MultiplyStrings {
         char[] c1= new StringBuilder(num1).reverse().toString().toCharArray();
         char[] c2 = new StringBuilder(num2).reverse().toString().toCharArray();
         int[] results = new int[c1.length + c2.length+1];
-        int k=0; //results的index
         for(int i=0;i<c1.length;i++)
         {
 			int carry = 0;
