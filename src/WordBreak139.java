@@ -8,22 +8,22 @@ public class WordBreak139 {
 	 * @param wordDict
 	 * @return
 	 */
-//	
-//    public boolean wordBreak(String s, Set<String> wordDict) {
-//        int len = s.length();
-//        boolean[] arrays = new boolean[len+1];
-//        arrays[0] = true;
-//        for (int i = 1; i <= len; ++i){
-//          for (int j = 0; j < i; ++j){
-//            if (arrays[j] && wordDict.contains(s.substring(j, i))){
-//              // f(n) = f(0,i) + f(i,j) + f(j,n)
-//              arrays[i] = true;
-//              break;
-//            }
-//          }
-//        }
-//        return arrays[len];
-//    }
+	
+    public boolean wordBreak(String s, Set<String> wordDict) {
+        int len = s.length();
+        boolean[] arrays = new boolean[len+1];
+        arrays[0] = true;
+        for (int i = 1; i <= len; ++i){
+          for (int j = 0; j < i; ++j){
+            if (arrays[j] && wordDict.contains(s.substring(j, i))){
+              // f(n) = f(0,i) + f(i,j) + f(j,n)
+              arrays[i] = true;
+              break;
+            }
+          }
+        }
+        return arrays[len];
+    }
     
     /**
      * 超时版本，递归
@@ -33,7 +33,7 @@ public class WordBreak139 {
      */
     
     
-    public boolean wordBreak(String s, Set<String> wordDict) {
+    public boolean wordBreak2(String s, Set<String> wordDict) {
     	boolean[] memo = new boolean[s.length()];
     	return getWord(s,0,wordDict,memo);
     	

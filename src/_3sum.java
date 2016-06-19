@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class P15_3sum {
+public class _3sum {
 	
 	private static List<List<Integer>> results;
 	
@@ -75,7 +75,7 @@ public class P15_3sum {
     	{
     		nums[i]=Integer.parseInt(ss[i]);
     	}
-    	P15_3sum test = new P15_3sum();
+    	_3sum test = new _3sum();
     	test.threeSum(nums);
     //	find3sum(nums,0);
 	}

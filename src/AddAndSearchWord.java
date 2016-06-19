@@ -2,10 +2,10 @@ import java.util.LinkedList;
 
 
 
-public class P211 {
+public class AddAndSearchWord {
 	TrieNode root;
 	
-	  public P211() {
+	  public AddAndSearchWord() {
 		    root = new TrieNode();
 		  }
 
@@ -170,7 +170,7 @@ public class P211 {
     
     public static void main(String args[])
     {
-    	P211 test = new P211();
+    	AddAndSearchWord test = new AddAndSearchWord();
 //    	String s = "a";
 //    	System.out.println(s.charAt(1));
     	test.addWord("at");
