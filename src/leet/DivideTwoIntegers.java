@@ -3,12 +3,12 @@ package leet;
  * https://leetcode.com/problems/divide-two-integers/
  * @author Gavin
  * 2016-06-13
- * �?��?的testcase.....
+ * 变态的testcase.....
  */
 public class DivideTwoIntegers
 {
 	/**
-	 * �?�?许使用乘除法，使用�?法会超时，选择移�?�?算
+	 * 不允许使用乘除法，使用减法会超时，选择移位运算
 	 * @param dividend
 	 * @param divisor
 	 * @return
@@ -27,7 +27,7 @@ public class DivideTwoIntegers
     }
     else 
     	flag = true;
-    //在�?算时，会有移�?到最大值的时候，因此使用long类型
+    //在运算时，会有移位到最大值的时候，因此使用long类型
 	long L_dividend = Math.abs((long)dividend);
 	long L_divisor = Math.abs((long)divisor); 
     if(L_dividend < L_divisor)
@@ -50,7 +50,7 @@ public class DivideTwoIntegers
    	
     	if(shift > L_dividend)
     	{
-    		//�?算顺�?敲错了好几次
+    		//运算顺序敲错了好几次
     		shift = shift >>1;
     		tempCount = tempCount >>1;
     		L_dividend =  L_dividend - shift;
@@ -62,7 +62,7 @@ public class DivideTwoIntegers
     	shift = shift <<1;
     	tempCount = tempCount<<1;
     }
-    //考虑边界�?�件: -2147483648
+    //考虑边界条件: -2147483648
     if((count+Integer.MIN_VALUE)==0)
     	return divisor==1? Integer.MIN_VALUE:Integer.MAX_VALUE;
     if(flag)

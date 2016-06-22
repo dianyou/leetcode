@@ -8,9 +8,9 @@ package leet;
 public class RemoveDuplicatesFromSortedArrayII
 {
 	/**
-	 * �?许�?�?，间隔判断；
-	 * 由于是间隔判断，需�?在下一次判断时�?为nums[count]赋值
-	 * 如果�??�?赋值，会存在nums[i-2]就是nums[count]
+	 * 允许重复，间隔判断；
+	 * 由于是间隔判断，需要在下一次判断时再为nums[count]赋值
+	 * 如果提前赋值，会存在nums[i-2]就是nums[count]
 	 * @param nums
 	 * @return
 	 */
@@ -20,7 +20,7 @@ public class RemoveDuplicatesFromSortedArrayII
 	if(nums.length<=2)
 		return nums.length;
     int count=1,temp = nums[1];
-    for(int i=2;i<nums.length;i++)//隔一个�?�判断
+    for(int i=2;i<nums.length;i++)//隔一个来判断
     {
       if(nums[i] == nums[i-2])
       {

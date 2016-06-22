@@ -42,7 +42,7 @@ public class ContainsDuplicateII
  * @param nums
  * @param k
  * @return
- * 使用HashSet�?�?一个长度为k的滑动窗�?�，中间是用HashSet判断�?�?
+ * 使用HashSet保持一个长度为k的滑动窗口，中间是用HashSet判断重复
  * 效率很高
  */
   public boolean containsNearbyDuplicate(int[] nums, int k) {
@@ -53,7 +53,7 @@ public class ContainsDuplicateII
 
     HashSet<Integer> hashSet = new HashSet<Integer>();
     for (int i = 0; i < nums.length; i++) {
-        if (i > k) {//移动窗�?�
+        if (i > k) {//移动窗口
             hashSet.remove(nums[i - k - 1]);
         }
         if (!hashSet.add(nums[i])) {

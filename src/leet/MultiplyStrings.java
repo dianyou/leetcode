@@ -1,14 +1,15 @@
+
 package leet;
 /**
  * https://leetcode.com/problems/multiply-strings/
  * @author Gavin
  *	2016-06-13
- *	�?�?直接把字符串转�?��?整数，�?�?使用大数类型
+ *	不要直接把字符串转换成整数，不要使用大数类型
  */
 public class MultiplyStrings {
 	/**
-	 * 模拟手算的办法太笨了，观察�?算过程�?�以�?�现
-	 * 结果第i+j�?的数值是（n1[i]*n2[j]+n1[i-1]*n2[j+1]+....）
+	 * 模拟手算的办法太笨了，观察运算过程可以发现
+	 * 结果第i+j位的数值是（n1[i]*n2[j]+n1[i-1]*n2[j+1]+....）
 	 * @param num1
 	 * @param num2
 	 * @return
@@ -28,7 +29,7 @@ public class MultiplyStrings {
         	for(int j=0;j<c2.length;j++)
         	{
         	//	System.out.println("Before::"+(i+j)+","+results[i+j]);
-				//carry�?�带上一�?�?算的进�?
+				//carry携带上一位运算的进位
 				int product = results[i+j]+(c1[i]-'0')*(c2[j]-'0') +carry;
 				//System.out.println(product);
 				carry = product /10;

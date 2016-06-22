@@ -12,8 +12,8 @@ import java.util.Set;
 public class WordBreakII
 {
 	/**
-	 * 暴力�?�索方法，超时
-	 * 继承自wordBreak的�?想，首先判断哪些点�?�以break，�?�??历一�??
+	 * 暴力搜索方法，超时
+	 * 继承自wordBreak的思想，首先判断哪些点可以break，再遍历一遍
 	 * @param s
 	 * @param wordDict
 	 * @return

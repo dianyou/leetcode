@@ -1,5 +1,4 @@
 package leet;
-
 public class WordSearch79 {
 	  public boolean exist(char[][] board, String word) {
 	        if(word.length()==0)

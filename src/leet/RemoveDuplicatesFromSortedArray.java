@@ -1,7 +1,7 @@
 package leet;
 /**
 https://leetcode.com/problems/remove-duplicates-from-sorted-array/
-这�?�题，一方�?��?求返回�?�?�?数字的个数，一方�?��?把这些数字放在nums数组的�?段
+这道题，一方面要求返回不重复数字的个数，一方面要把这些数字放在nums数组的前段
 Gavin
 2016-06-05
 **/

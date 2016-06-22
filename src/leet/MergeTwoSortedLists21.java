@@ -1,5 +1,4 @@
 package leet;
-
 public class MergeTwoSortedLists21 {
 	  public class ListNode {
 		      int val;

@@ -23,7 +23,7 @@ public class ReverseNodeInKGroup {
     ListNode root = new ListNode(0);
     root.next = head;
     ListNode reverseStart = head,cur = head,reverseEnd = head;
-    ListNode pre = new ListNode(0); //记录翻转�?�的最�?�一个元素
+    ListNode pre = new ListNode(0); //记录翻转后的最后一个元素
     for(int j=0;j<len/k;j++)
     {	
     //	System.out.println("cur::"+cur.val);
@@ -41,7 +41,7 @@ public class ReverseNodeInKGroup {
           cur = temp;
  
         }
-        if(len/k==1) //在�?�翻转一次时，会形�?循环链表
+        if(len/k==1) //在只翻转一次时，会形成循环链表
         	break;
         pre.next = reverseStart; //连接两端翻转链表
        

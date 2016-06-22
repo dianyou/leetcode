@@ -13,7 +13,7 @@ public class ValidateBinarySearchTree
         TreeNode(int x) { val = x; }
     }
     /**
-     * DFS递归判断，注�?：左节点的�?��?节点�?止�?比左节点的值大，还�?比父节点的值�?，因此在�?次判断时�?增加上界和下界
+     * DFS递归判断，注意：左节点的右子节点不止要比左节点的值大，还要比父节点的值小，因此在每次判断时要增加上界和下界
      * 为了防止超出int值得范围，因此加入boolean类型的判断
      * @param root
      * @return
@@ -78,11 +78,11 @@ public class ValidateBinarySearchTree
        return true;
     }
     /**
-     * 中�?�??历，获�?�到一个无�?�?的递增�?列�?��?�
+     * 中序遍历，获取到一个无重复的递增序列即可
      * @param root
      * @return
      */
-    TreeNode pre = null;  //�??历时的�?一个节点
+    TreeNode pre = null;  //遍历时的前一个节点
       
     public boolean isValidBST(TreeNode root) {  
         if (root != null) {  

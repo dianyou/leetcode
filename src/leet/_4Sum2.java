@@ -63,7 +63,7 @@ public class _4Sum2
     {
  //     System.out.println("3::"+nums[left]);
  //     System.out.println("4::"+nums[right]);
-      //这里体现出ArrayList和LinkedList的性能区别，在读�?�list的值时,LinkedList在OJ上超时了...
+      //这里体现出ArrayList和LinkedList的性能区别，在读取list的值时,LinkedList在OJ上超时了...
     	
       if((nums[left]+nums[right]) == target)
       {

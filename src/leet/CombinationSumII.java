@@ -21,8 +21,8 @@ public class CombinationSumII {
   	  	return res;
     }
     /**
-     * DFS�??历，想象�?树，最深的是当�?节点与所有之�?�的节点�?�累加
-     * 至于�?�?数�?�问题，最深的就是全部�?�得，最外层�?��?�一个，最里层�?�全部�?�?的数值
+     * DFS遍历，想象成树，最深的是当前节点与所有之后的节点做累加
+     * 至于重复数据问题，最深的就是全部取得，最外层只取一个，最里层取全部重复的数值
      * @param nums
      * @param start
      * @param target

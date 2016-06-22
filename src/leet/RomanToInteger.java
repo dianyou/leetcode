@@ -10,7 +10,7 @@ import java.util.Map;
 public class RomanToInteger {
 	
 	/**
-	 * 好�?无须判断�?�?�法的情况
+	 * 好像无须判断不合法的情况
 	 * @param s
 	 * @return
 	 */

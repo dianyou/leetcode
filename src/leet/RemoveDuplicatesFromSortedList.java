@@ -1,5 +1,4 @@
 package leet;
-
 /**
 	https://leetcode.com/problems/remove-duplicates-from-sorted-list/
 	Gavin
@@ -15,7 +14,7 @@ public class RemoveDuplicatesFromSortedList {
       }
     }
     public ListNode deleteDuplicates(ListNode head) {
-      ListNode pre=null,cur=head; //�?�指针
+      ListNode pre=null,cur=head; //双指针
       if(head ==null||head.next == null)
         return head;
       while(cur !=null)

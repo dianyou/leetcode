@@ -12,7 +12,7 @@ public class WordLadder127 {
 	
 	/**
 	 * https://leetcode.com/problems/word-ladder/
-	 * 超时了，修改策略：�?需�?和所有�?��?对比，�?�需�?更改字符，然�?��?�匹�?，�?�?�度是 （26*wordlength）
+	 * 超时了，修改策略：不需要和所有单词对比，只需要更改字符，然后做匹配，复杂度是 （26*wordlength）
 	 * @param beginWord
 	 * @param endWord
 	 * @param wordList
@@ -80,7 +80,7 @@ public class WordLadder127 {
     }
     
     /**
-     * 优化方法：自�?�字�?，从'a'到'z'
+     * 优化方法：自变字母，从'a'到'z'
      * @param beginWord
      * @param endWord
      * @param wordList
@@ -92,9 +92,9 @@ public class WordLadder127 {
             return 0; 
     	
     	Queue<String> match = new LinkedList<String>();
-    	Map<String,Integer> level = new HashMap<String,Integer>();//记录�?个�?��?�的层数
+    	Map<String,Integer> level = new HashMap<String,Integer>();//记录每个变换的层数
     	Set<String> wordSet = new HashSet<>(wordList);
-    	if(wordSet.contains(beginWord))//剔除原集�?�中有首元素的情况
+    	if(wordSet.contains(beginWord))//剔除原集合中有首元素的情况
     	{
     		wordSet.remove(beginWord);
     	}
@@ -104,11 +104,11 @@ public class WordLadder127 {
     	
     	while(!match.isEmpty())
     	{
-    		//�?�?对集�?�进行�??历，通过改�?�自己，在HashSet中匹�?
+    		//不再对集合进行遍历，通过改变自己，在HashSet中匹配
     		String head = match.poll();	//poll：删除并返回队列的首元素
     		for(int i=0;i<head.length();i++)
     		{
-    			//从'a'到'z'�?��?�
+    			//从'a'到'z'变换
     			for(char c = 'a';c<='z';c++) 
     			{
     				StringBuilder sb = new StringBuilder(head);

@@ -3,18 +3,18 @@ package leet;
  * https://leetcode.com/problems/decode-ways/
  * @author Gavin
  * 2016-06-08
- * ac率�?�有17.7.............
+ * ac率只有17.7.............
  *
  */
 public class DecodeWays
 {
   /**
-  若两�?数，大于26，则f(n) = f(n-1)
-  若�?于等于26，则f(n)=f(n-1)+f(n-2)
+  若两位数，大于26，则f(n) = f(n-1)
+  若小于等于26，则f(n)=f(n-1)+f(n-2)
   */
 
 	/**
-	 * 超时了，有�?�?计算�?�?�?�?f(n-1)和f(n-2)
+	 * 超时了，有重复计算！！！！f(n-1)和f(n-2)
 	 * @param s
 	 * @return
 
@@ -47,8 +47,8 @@ public class DecodeWays
   }
  */
 	/**
-	 * 使用一个数组记录，f(n-1),f(n-2)，都是�?计算的
-	 * 包�?�"0"是个问题
+	 * 使用一个数组记录，f(n-1),f(n-2)，都是要计算的
+	 * 包含"0"是个问题
 	 * @param s
 	 * @return
 	 */
@@ -62,7 +62,7 @@ public class DecodeWays
 	    return 1;
 
 	  int[] f = new int[s.length()+1];
-	  //�?始化f
+	  //初始化f
 	  f[1] = 1;
 	  String firstTwo = s.substring(0,2);
 	  int value = Integer.parseInt(firstTwo);

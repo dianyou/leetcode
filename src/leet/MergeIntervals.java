@@ -10,7 +10,7 @@ import java.util.Queue;
  * https://leetcode.com/problems/merge-intervals/
  * @author Gavin
  * 2016-5-30
- * 先把所有区间按照起始�?置排�?，然�?��?�?次�?�并区间
+ * 先把所有区间按照起始位置排序，然后再依次合并区间
  */
 public class MergeIntervals {
 
@@ -28,7 +28,7 @@ public class MergeIntervals {
 		 		{
 		 			return in1.start - in2.start;
 		 		}
-			 }); ////根�?��?�区间的起始点排�?
+			 }); ////根据各区间的起始点排序
 //		 Queue<Interval> queue = new PriorityQueue<Interval>(new Comparator<Interval>()
 //				 {
 //			 		public int compare(Interval in1,Interval in2)
@@ -36,8 +36,8 @@ public class MergeIntervals {
 //			 			return in1.start - in2.start;
 //			 		}
 //				 } );
-//		 queue.addAll(intervals);//根�?��?�区间的起始点排�?
-		 LinkedList<Interval> mergeList = new LinkedList<Interval>();//用于�?�并的队列
+//		 queue.addAll(intervals);//根据各区间的起始点排序
+		 LinkedList<Interval> mergeList = new LinkedList<Interval>();//用于合并的队列
 		 for(Interval in:intervals)
 		 {
 			 //merge
@@ -49,7 +49,7 @@ public class MergeIntervals {
 					}
 					else
 					{
-						if(merged.end > in.end)//新�?�的区间包在已存在的区间的内部
+						if(merged.end > in.end)//新来的区间包在已存在的区间的内部
 							continue;
 						merged = new Interval(merged.start,in.end);
 						mergeList.removeFirst();

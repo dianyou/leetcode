@@ -1,19 +1,14 @@
 package leet;
-
-/**
- * 
- * @author Gavin
- * 2016-06-21
- *
- */
 public class PalindromeNumber
 {
 	public boolean isPalindrome(int x) 
 	{
-		if(x<0)
+		if(x == 0)
+			return true;
+		if(x<10)
 			return false;
     	int base=1;
-    	while(x/base >=10)
+    	while(x/base >10)
     		base *=10;
     	while(base>0)
     	{
@@ -33,7 +28,7 @@ public class PalindromeNumber
     public static void main(String args[])
     {
     	PalindromeNumber test = new PalindromeNumber();
-    	boolean res = test.isPalindrome(101);
+    	boolean res = test.isPalindrome(234);
     	System.out.println(res);
     }
 }

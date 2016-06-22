@@ -1,5 +1,4 @@
 package leet;
-
 public class HouseRobber198 {
     public int rob(int[] nums) {
         int[] max = new int[nums.length+1];

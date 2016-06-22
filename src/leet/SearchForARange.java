@@ -6,7 +6,7 @@ package leet;
  */
 public class SearchForARange {
 	/**
-	 * 先找到target，�?�?�左�?��??�?�寻找边界
+	 * 先找到target，再向左右反向寻找边界
 	 * 方法二：：对区间两端分别二分法查找，左：nums[k] = target && nums[k-1]<target...
 	 * 
 	 * @param nums

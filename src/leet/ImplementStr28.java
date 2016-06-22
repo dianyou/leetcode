@@ -1,5 +1,4 @@
 package leet;
-
 public class ImplementStr28 {
 	/**
 	 * https://leetcode.com/problems/implement-strstr/
@@ -40,8 +39,8 @@ public class ImplementStr28 {
     	if(next ==null)
     		return -1;
     	
-    	int p=0; //标识needle匹�?的�?置
-    //	int i=0; //标识haystack的�?置
+    	int p=0; //标识needle匹配的位置
+    //	int i=0; //标识haystack的位置
     	for(int i=0;i<n;i++)
     	{
     		if(needle.charAt(p)==haystack.charAt(i))
@@ -52,12 +51,12 @@ public class ImplementStr28 {
 	    		if( p ==m )
 	    		{
 
-	    			return i+1-m; //由于此时循环还没结�?�，因此i值需�?+1
+	    			return i+1-m; //由于此时循环还没结束，因此i值需要+1
 	    		}
     		}
     		else
     		{
-    			if(p>0) //如果已�?有匹�?的字符，则当�?未命中字符需�?�?新比较
+    			if(p>0) //如果已经有匹配的字符，则当前未命中字符需要重新比较
         			i--;
     			if(p>0)
     				p = next[p-1];
@@ -73,9 +72,9 @@ public class ImplementStr28 {
         
     }
     /**
-     * 生�?next数组，第一个元素值为0
-     * 当�?��?置对应一个next值，�?次移动字符串时，移动长度为 s.length()-next[p]
-     * p为当次匹�?到的�?置
+     * 生成next数组，第一个元素值为0
+     * 当各位置对应一个next值，每次移动字符串时，移动长度为 s.length()-next[p]
+     * p为当次匹配到的位置
      * @param s
      * @return
      */
@@ -87,7 +86,7 @@ public class ImplementStr28 {
     	next[0] = 0;
     	if(s.length()==1)
     		return next;
-    	int p=1; //匹�?的�?缀字符串的长度
+    	int p=1; //匹配的前缀字符串的长度
     	
     	for(int i=1;i<s.length();i++)
     	{

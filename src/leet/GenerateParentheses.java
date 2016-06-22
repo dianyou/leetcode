@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class GenerateParentheses {
 	/**
-	 * 采用两个指针计数，left：左括�?�的个数；right：�?�括�?�的个数，�?�?left>=right
+	 * 采用两个指针计数，left：左括号的个数；right：右括号的个数，保证left>=right
 	 * @param n
 	 * @return
 	 */
@@ -30,9 +30,9 @@ public class GenerateParentheses {
     	}
         if(left>right)//add ")"
         {
-        	generate(n,left,right+1,s +")",list);//�?�?�?�更right的值（right++），会影�?下一个if中的值
+        	generate(n,left,right+1,s +")",list);//不要变更right的值（right++），会影响下一个if中的值
         }
-        if(left<n)//添加左括�?�"("
+        if(left<n)//添加左括号"("
         {
         	generate(n,left+1,right, s+"(",list);
         }

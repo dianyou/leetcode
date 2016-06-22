@@ -27,7 +27,7 @@ public class SortColors {
     			nums[left] = 0;
     			nums[i]= temp;
     			left++;
-    		//	i--;	//无须�?判断，交�?�过�?�的肯定是1，因为�??历顺�?是从左到�?�
+    		//	i--;	//无须再判断，交换过来的肯定是1，因为遍历顺序是从左到右
     			continue;
     		}
     		if(nums[i]==2)
@@ -37,7 +37,7 @@ public class SortColors {
     			nums[right] = 2;
     			nums[i] = temp;
     			right--;
-    			i--; //需�?继续判断交�?�过�?�的数�?�，因为有�?�能交�?�过�?�的是2
+    			i--; //需要继续判断交换过来的数据，因为有可能交换过来的是2
     			continue;
     		}
     		

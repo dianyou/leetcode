@@ -1,6 +1,5 @@
 package leet;
 
-
 import java.util.HashSet;
 import java.util.Set;
 import java.util.SortedSet;
@@ -9,7 +8,7 @@ import java.util.TreeSet;
  * https://leetcode.com/problems/contains-duplicate-iii/
  * @author Gavin
  * 	2016-06-17
- * 我觉得这三�?�题目有点无�?�。。。。
+ * 我觉得这三道题目有点无聊。。。。
  *
  */
 public class ContainsDuplicateIII {
@@ -29,7 +28,7 @@ public class ContainsDuplicateIII {
     		if(i>k)
     			winK.remove(nums[i-k-1]);
 
-    		if(k>=t)//�?�k和t中较�?的值迭代判断
+    		if(k>=t)//取k和t中较小的值迭代判断
     		{
         		for(int j=-t;j<=t;j++)
         		{
@@ -98,7 +97,7 @@ public class ContainsDuplicateIII {
     		}
     		
 
-    		//subset�?�[left,right);高值�?�?�，因此使用nums[i]+t+1;
+    		//subset取[left,right);高值不取，因此使用nums[i]+t+1;
     		System.out.println(ss.toString());
     		SortedSet<Long> sub = ss.subSet((long)nums[i]-t, (long)nums[i]+t+1);
     		if(!sub.isEmpty())

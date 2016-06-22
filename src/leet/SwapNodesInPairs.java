@@ -12,7 +12,7 @@ public class SwapNodesInPairs{
 	     ListNode(int x) { val = x; }
 	 }
 	/*
-	 * 直接交�?�值就�?�以了，如果采�?�交�?�节点的方法，需�?是三个指针，分别指�?�第一个节点，第二个节点以�?�第一个节点的�?驱节点
+	 * 直接交换值就可以了，如果采取交换节点的方法，需要是三个指针，分别指向第一个节点，第二个节点以及第一个节点的前驱节点
 	 */
   public ListNode swapPairs(ListNode head)
   {

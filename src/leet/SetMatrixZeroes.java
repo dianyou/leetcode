@@ -1,10 +1,9 @@
 package leet;
-
 /**
  * https://leetcode.com/problems/set-matrix-zeroes/
  * @author Gavin
  *	2016-5-30
- *	�?�使用O（1）的空间�?�??历数组，当找到第一个matrix[i][j]=0时，使用第i行第j列存储置�?�信�?�
+ *	只使用O（1）的空间！遍历数组，当找到第一个matrix[i][j]=0时，使用第i行第j列存储置换信息
  */
 public class SetMatrixZeroes {
 	
@@ -16,8 +15,8 @@ public class SetMatrixZeroes {
     	if(matrix.length ==0 || matrix[0].length == 0)
     		return;
     	
-    	int a=0,b=0;//第一个"0"的�?置
-    	boolean flag=false; //标识是�?�有0
+    	int a=0,b=0;//第一个"0"的位置
+    	boolean flag=false; //标识是否有0
     	for(int i=0;i<matrix.length;i++)//标识行
     		for(int j=0;j<matrix[0].length;j++)//标识列
     		{
@@ -49,7 +48,7 @@ public class SetMatrixZeroes {
 //    	}
 //    	System.out.println();
     	
-        //�??历matrix[a],置�?�目标列
+        //遍历matrix[a],置换目标列
     	for(int j =0;j<matrix[a].length;j++)
     	{
     		if(matrix[a][j] != 0)
@@ -61,7 +60,7 @@ public class SetMatrixZeroes {
     			matrix[i][j] = 0;
     		}
     	}
-    	//�??历matrix[][b]
+    	//遍历matrix[][b]
     	for(int i=0;i<matrix.length;i++)
     	{
     		if(i==a)
@@ -73,7 +72,7 @@ public class SetMatrixZeroes {
     			matrix[i][j] = 0;
     		}
     	}
-    	//将第a行，第b列置�?�为0
+    	//将第a行，第b列置换为0
     	for(int i=0;i<matrix.length;i++)
     	{
     		matrix[i][b] = 0;

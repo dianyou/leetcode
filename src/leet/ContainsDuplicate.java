@@ -10,7 +10,7 @@ import java.util.Set;
 public class ContainsDuplicate
 {
 /**
- * 先排�?，时间�?�?�度该是O(nlgn)，但是在LeetCode的testcase下�??而比Hash快
+ * 先排序，时间复杂度该是O(nlgn)，但是在LeetCode的testcase下反而比Hash快
  * @param nums
  * @return
  */

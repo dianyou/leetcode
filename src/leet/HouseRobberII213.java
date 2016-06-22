@@ -1,5 +1,4 @@
 package leet;
-
 public class HouseRobberII213 {
     public int rob(int[] nums) {
     	int len = nums.length;

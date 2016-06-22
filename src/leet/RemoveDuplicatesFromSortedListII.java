@@ -31,7 +31,7 @@ public class RemoveDuplicatesFromSortedListII {
       }
       if(head.next.next ==null)
         return head;
-      ListNode cur=head; //�?�个指针，需�?判断head处的数字是�?��?�?节点
+      ListNode cur=head; //单个指针，需要判断head处的数字是否重复节点
    //   System.out.println("Head::"+head.val);
       while(cur !=null && cur.next !=null && cur.next.next !=null)
       {

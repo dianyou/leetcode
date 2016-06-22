@@ -1,5 +1,4 @@
 package leet;
-
 public class Solution345 {
     public String reverseVowels(String s) {
         StringBuilder reverseVowels = new StringBuilder();

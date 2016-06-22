@@ -10,7 +10,7 @@ import java.util.List;
 public class CombinationSumIII
 {
 	/**
-	 * 若果按照k是�?��?到0，代�?会简�?
+	 * 若果按照k是否减到0，代码会简洁
 	 * @param k
 	 * @param n
 	 * @return
@@ -40,7 +40,7 @@ public class CombinationSumIII
         List<Integer> list = new LinkedList<Integer>();
         list.add(i);
         max = (k-1)*i-(k-1)*k/2;
-        if(max >= n-i)//剪�?
+        if(max >= n-i)//剪枝
         	combination(k-1,i-1,n-i,list,res);
     }
     return res;
@@ -58,7 +58,7 @@ public class CombinationSumIII
         }
           return;
       }
-    up = target<up? target:up; //剪�?
+    up = target<up? target:up; //剪枝
     
     for(int i = up;i>0;i--)
     {
@@ -70,7 +70,7 @@ public class CombinationSumIII
         temp.add(i);
         
         int max = (k-1)*i-(k-1)*k/2;
-        if(max >= target-i)//剪�?
+        if(max >= target-i)//剪枝
         	combination(k-1,i-1,target-i,temp,res);
     }
   }

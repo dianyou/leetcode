@@ -26,12 +26,12 @@ public class WordLadderII126 {
     	if (beginWord == null || endWord == null || beginWord.equals(endWord)  
                 || beginWord.length() != endWord.length() ||beginWord.length() ==0)  
             return null; 
-    	Queue<String> match = new LinkedList<String>(); //�?��?��?�存在于集�?�中的元素
-    	Map<String,List<String>> recallHM = new HashMap<String,List<String>>();//回溯；key存储当�?字符串；value存储pre的字符串
-    	Map<String,Integer> level = new HashMap<String,Integer>();//记录�?个�?��?�的层数
+    	Queue<String> match = new LinkedList<String>(); //变换后存在于集合中的元素
+    	Map<String,List<String>> recallHM = new HashMap<String,List<String>>();//回溯；key存储当前字符串；value存储pre的字符串
+    	Map<String,Integer> level = new HashMap<String,Integer>();//记录每个变换的层数
     	int shortestLevel = wordList.size();
     //	Set<String> wordSet = new HashSet<>(wordList);
-    	if(wordList.contains(beginWord))//剔除原集�?�中有首元素的情况
+    	if(wordList.contains(beginWord))//剔除原集合中有首元素的情况
     	{
     		wordList.remove(beginWord);
     	}
@@ -41,18 +41,18 @@ public class WordLadderII126 {
     	boolean flag = false;
     	while(!match.isEmpty())
     	{
-    		//�?�?对集�?�进行�??历，通过改�?�自己，在HashSet中匹�?
+    		//不再对集合进行遍历，通过改变自己，在HashSet中匹配
     		String head = match.poll();	//poll：删除并返回队列的首元素
     		if(level.get(head) >=shortestLevel)
     			continue;
     		
     		
-    		wordList.remove(head);	//集�?�中删除元素
+    		wordList.remove(head);	//集合中删除元素
     		
     		
     		for(int i=0;i<head.length();i++)
     		{
-    			//从'a'到'z'�?��?�
+    			//从'a'到'z'变换
     			for(char c = 'a';c<='z';c++) 
     			{
     				StringBuilder sb = new StringBuilder(head);
@@ -73,7 +73,7 @@ public class WordLadderII126 {
     					}
     					if(tempList.contains(head))
     						continue;
-    					tempList.add(head);//由于会remove集�?�中的数�?�，所以�?会存在�?�?值
+    					tempList.add(head);//由于会remove集合中的数据，所以不会存在重复值
     					recallHM.put(changed,tempList);
     					if(changed.equals(endWord))
     					{
@@ -99,7 +99,7 @@ public class WordLadderII126 {
     	return results;
     }
     
-    //dfs时，以始�?�终，endWord为起始key
+    //dfs时，以始做终，endWord为起始key
     //Memory limited exceed!!!!!!!!!
     private void dfs(Map<String,List<String>> map,String start,String end,LinkedList<String> path,List<List<String>> results)
     {
