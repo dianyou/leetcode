@@ -8,7 +8,7 @@ public class ImplementStr28 {
 	 * @param needle
 	 * @return
 	 */
-	
+
 	/**
 	 * KMP算法
 	 * @param haystack
@@ -16,7 +16,7 @@ public class ImplementStr28 {
 	 * @return
 	 */
     public int strStr(String haystack, String needle) {
-    	
+
     	if(haystack ==null || needle == null)
     		return -1;
     	int n = haystack.length();
@@ -28,17 +28,17 @@ public class ImplementStr28 {
     		else
     			return -1;
     	}
-    	
+
     	if(n<m)
     		return -1;
     	if(m==0 ) //needle字符串为空字符串时，返回0
     		return 0;
-    	
+
     	int next[];
     	next = generateNext(needle);
     	if(next ==null)
     		return -1;
-    	
+
     	int p=0; //标识needle匹配的位置
     //	int i=0; //标识haystack的位置
     	for(int i=0;i<n;i++)
@@ -62,14 +62,14 @@ public class ImplementStr28 {
     				p = next[p-1];
     			else
     				p=0;
-    			
+
 //    			System.out.println("new p::"+p);
 //    			System.out.println("new i::"+i);
     		}
-    		
+
     	}
     	return -1;
-        
+
     }
     /**
      * 生成next数组，第一个元素值为0
@@ -87,26 +87,30 @@ public class ImplementStr28 {
     	if(s.length()==1)
     		return next;
     	int p=1; //匹配的前缀字符串的长度
-    	
+    	//注意是从第二个字符开始！！！！
+
+
+			//这段代码或许是错的...........
+			//next[]数组的生成在未匹配那一步判断不对
     	for(int i=1;i<s.length();i++)
     	{
     		if(s.charAt(i) == s.charAt(p-1))
     		{
-    			next[i] = p;	
+    			next[i] = p;
     			p++;
-    			
+
     		}
     		else
     		{
     			next[i] = 0;
     			p = 1;
     		}
-    			
+
     	}
-    	
+
     	return next;
     }
-    
+
     public static void main(String args[])
     {
     	String haystack = "mississippi";
@@ -118,6 +122,6 @@ public class ImplementStr28 {
     		System.out.print(i+",");
     	System.out.println();
     }
-    
+
 
 }
