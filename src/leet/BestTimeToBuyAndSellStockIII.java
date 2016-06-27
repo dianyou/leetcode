@@ -82,4 +82,11 @@ public class BestTimeToBuyAndSellStockIII {
 
         return secondSell; // secondSell will be the max profit after passing the prices
     }
+    public static void main(String args[])
+    {
+    	BestTimeToBuyAndSellStockIII test = new BestTimeToBuyAndSellStockIII();
+    	int prices[] = {1,2,4,2,5,7,2,4,9,0};
+    	int res = test.maxProfitBetter(prices);
+    	System.out.println(res);
+    }
 }
