@@ -54,7 +54,7 @@ public class BestTimeToBuyAndSellStockIV {
         	}
         	/**
         	 * DP算法
-        	 * 每次计算到i位置，j次交易的最大收益
+        	 * 每次计算到i位置，通过j+1次交易获得的最大收益
         	 */
         	
         	for(int j=1;j<k;j++)

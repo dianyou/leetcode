@@ -34,7 +34,11 @@ public class Solution {
 	}
 	public static void main(String args[])
 	{
-		Solution test = new Solution();
-		test.shortestPalindrome("aacecaaa");
+//		Solution test = new Solution();
+//		test.shortestPalindrome("aacecaaa");
+		String path = "/C:/dev/tomcat/apache-tomcat-8.0.36/wtpwebapps/gavin/WEB-INF/classes/";
+		path = path.substring(0, path.lastIndexOf("/WEB-INF/"));	
+		System.out.println(path);
+		System.out.println(path.indexOf("/C:"));
 	}
 }
