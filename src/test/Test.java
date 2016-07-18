@@ -55,8 +55,9 @@ public class Test
    
    public static void main(String[] args)
    {
-	   int m =15;
+	//   int m =15;
 	   int n=-1;
-	   System.out.println(m%n);
+	   int nums[] = {1,2,3};
+	   System.out.println(nums[n]);
    }
 }
