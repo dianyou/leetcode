@@ -1,5 +1,10 @@
 package leet;
 
+/**
+ * 2016-08-01
+ * @author Gavin
+ *
+ */
 public class SpiralMatrixII {
 
     public int[][] generateMatrix(int n) {
