@@ -4,6 +4,7 @@ public class ImplementStr28 {
 	 * https://leetcode.com/problems/implement-strstr/
 	 * Gavin
 	 * 2016-5-27
+	 * update: 2016-10-15
 	 * @param haystack
 	 * @param needle
 	 * @return
