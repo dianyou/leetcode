@@ -69,11 +69,7 @@ public class ImplementStr28 {
     	next[0] = 0;
     	int k=0; 
     	
-<<<<<<< HEAD
     	for(int i=1;i<s.length();i++)
-=======
-    	for(int i=1;i<s.length();i++)
->>>>>>> refs/remotes/origin/master
     	{
     		//the key point is the action when s[i] != s[k]
     		//当前无法匹配时，还需向后回溯匹配，找到最长的匹配的以s[0]开始，以s[k]结尾字符串，直至k=0
