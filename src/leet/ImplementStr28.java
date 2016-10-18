@@ -4,11 +4,28 @@ public class ImplementStr28 {
 	 * https://leetcode.com/problems/implement-strstr/
 	 * Gavin
 	 * 2016-5-27
+	 * update: 2016-10-15
 	 * @param haystack
 	 * @param needle
 	 * @return
 	 */
+	/**
+	 * general answer
+	 * 我想多了。。。。
+	 */
 
+	public int strStrGeneral(String haystack, String needle) {
+	    if(haystack==null||needle==null||haystack.length()<needle.length()) 
+	    	return -1;
+	    if(needle.equals("")) return 0;
+	    for(int i=0,j=0;i<haystack.length()-needle.length()+1;i++){
+	        if(haystack.charAt(i)==needle.charAt(j))
+	            if(haystack.substring(i,needle.length()+i).equals(needle))
+	                return i;
+	    }
+	    return -1;
+	}
+	
 	/**
 	 * KMP算法
 	 * @param haystack
@@ -17,110 +34,69 @@ public class ImplementStr28 {
 	 */
     public int strStr(String haystack, String needle) {
 
-    	if(haystack ==null || needle == null)
+    	if(haystack==null||needle==null||haystack.length()<needle.length()) 
     		return -1;
-    	int n = haystack.length();
-    	int m = needle.length();
-    	if( m ==n)
-    	{
-    		if(needle.equals(haystack))
-    			return 0;
-    		else
-    			return -1;
-    	}
-
-    	if(n<m)
-    		return -1;
-    	if(m==0 ) //needle字符串为空字符串时，返回0
+    	if(needle.length() == 0)
     		return 0;
-
-    	int next[];
-    	next = generateNext(needle);
-    	if(next ==null)
-    		return -1;
-
-    	int p=0; //标识needle匹配的位置
-    //	int i=0; //标识haystack的位置
-    	for(int i=0;i<n;i++)
+    	int[] next = generateNext(needle);
+    	
+    	int k=0;
+    	
+    	for(int i=0;i<haystack.length();i++)
     	{
-    		if(needle.charAt(p)==haystack.charAt(i))
+    		while(k>0 && haystack.charAt(i) != needle.charAt(k))
     		{
-    			p++;
-//    			System.out.println("p::"+ (p-1));
-//    			System.out.println("i::"+i);
-	    		if( p ==m )
-	    		{
-
-	    			return i+1-m; //由于此时循环还没结束，因此i值需要+1
-	    		}
+    			k = next[k-1];
     		}
-    		else
+    		if(haystack.charAt(i) == needle.charAt(k))
     		{
-    			if(p>0) //如果已经有匹配的字符，则当前未命中字符需要重新比较
-        			i--;
-    			if(p>0)
-    				p = next[p-1];
-    			else
-    				p=0;
-
-//    			System.out.println("new p::"+p);
-//    			System.out.println("new i::"+i);
+    			k++;
     		}
-
+    		
+    		if(k == needle.length())
+    			return i-k+1;
+    		
     	}
     	return -1;
 
     }
-    /**
-     * 生成next数组，第一个元素值为0
-     * 当各位置对应一个next值，每次移动字符串时，移动长度为 s.length()-next[p]
-     * p为当次匹配到的位置
-     * @param s
-     * @return
-     */
+
     private int[] generateNext(String s)
     {
     	if(s == null || s.length() ==0)
     		return null;
-    	int next[] = new int[s.length()]; //next数组从0开始
+    	int next[] = new int[s.length()]; 
     	next[0] = 0;
-    	if(s.length()==1)
-    		return next;
-    	int p=1; //匹配的前缀字符串的长度
-    	//注意是从第二个字符开始！！！！
-
-
-			//这段代码或许是错的...........
-			//next[]数组的生成在未匹配那一步判断不对
+    	int k=0; 
+    	
     	for(int i=1;i<s.length();i++)
     	{
-    		if(s.charAt(i) == s.charAt(p-1))
+    		//the key point is the action when s[i] != s[k]
+    		//当前无法匹配时，还需向后回溯匹配，找到最长的匹配的以s[0]开始，以s[k]结尾字符串，直至k=0
+    		while(k>0 && s.charAt(i) != s.charAt(k))
     		{
-    			next[i] = p;
-    			p++;
-
+    			k = next[k-1];
     		}
-    		else
-    		{
-    			next[i] = 0;
-    			p = 1;
-    		}
-
+    		
+    		if(s.charAt(k) == s.charAt(i))
+    			k++;
+    		next[i] = k;
     	}
-
     	return next;
+
     }
 
     public static void main(String args[])
     {
     	String haystack = "mississippi";
-    	String needle = "issip";
+    	String needle = "a";
     	ImplementStr28 test = new ImplementStr28();
-  //  	int results = test.strStr(haystack, needle);
+    	int results = test.strStr(haystack, needle);
     	int next[] = test.generateNext(needle);
     	for(int i:next)
     		System.out.print(i+",");
     	System.out.println();
+    	System.out.println(results);
     }
 
 
