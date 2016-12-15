@@ -2,6 +2,11 @@ package leet;
 
 import java.util.Arrays;
 
+/**
+ * https://leetcode.com/problems/3sum-closest/
+ * @author I301431
+ * 2016-12-06
+ */
 public class _3SumClosest {
 
     public int threeSumClosest(int[] nums, int target) {

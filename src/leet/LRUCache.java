@@ -60,7 +60,7 @@ public class LRUCache {
 				node.after = head;
 				node.before = head.before;
 				head.before.after = node;
-				head.after.before = node;
+				head.before = node;
 			}
 			
 			
@@ -107,7 +107,7 @@ public class LRUCache {
 				node.after = head;
 				node.before = head.before;
 				head.before.after = node;
-				head.after.before = node;
+				head.before = node;
 			}
 			head = node;
 			
@@ -132,7 +132,7 @@ public class LRUCache {
 					node.after = head;
 					node.before = head.before;
 					head.before.after = node;
-					head.after.before = node;
+					head.before = node;
 				}
 				head = node;
 				cache.put(key, node);
@@ -151,7 +151,7 @@ public class LRUCache {
 				node.after = head;
 				node.before = head.before;
 				head.before.after = node;
-				head.after.before = node;
+				head.before = node;
 				head = node;
 				
 				cache.remove(removeKey);

@@ -5,7 +5,8 @@ where w1.Temperature> w2.Temperature
 	and TO_DAYS(w1.Date)-TO_DAYS(w2.Date) =1;
 
 196. Delete Duplicate Emails
-Delete p1 from Person p1
+
+Delete from Person p1
 inner join Person p2
 where p1.Email = p2.Email and p1.Id>p2.Id;
 

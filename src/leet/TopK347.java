@@ -19,6 +19,7 @@ public class TopK347 {
             }  
             map.put(num, cnt+1);  
         }  
+        //!k+1
         Queue<Integer> pq = new PriorityQueue<Integer>(k+1,  new Comparator<Integer>(){  
             @Override  
             public int compare(Integer o1, Integer o2) {  
