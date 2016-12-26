@@ -67,6 +67,7 @@ public class NQueens
     	/**
     	 * 此处有个奇怪的地方，一开始使用res.add(list)，然而结果只返回了第一行的值
     	 * 说明在添加时只是添加了list的地址，后续对list一系列remove操作也会影响list的值！！！
+    	 * list是指针地址......
     	 */
          System.out.println("n::"+n);
          System.out.println(list.toString());

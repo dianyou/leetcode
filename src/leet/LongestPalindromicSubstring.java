@@ -1,5 +1,10 @@
 package leet;
 
+/**
+ * https://leetcode.com/problems/longest-palindromic-substring/
+ * @author I301431
+ * 2016-12-15
+ */
 public class LongestPalindromicSubstring {
 	
 	//dp
