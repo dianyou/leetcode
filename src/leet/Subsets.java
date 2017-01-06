@@ -3,6 +3,11 @@ package leet;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * 2016-08-05
+ * @author I301431
+ * https://leetcode.com/problems/subsets/
+ */
 public class Subsets {
 	
 	

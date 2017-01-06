@@ -1,5 +1,10 @@
 package leet;
 
+/**
+ * https://leetcode.com/problems/maximum-subarray/
+ * @author I301431
+ * 2016-12-21
+ */
 public class MaximumSubarray {
     public int maxSubArray(int[] nums) {
         if(nums == null || nums.length <1)

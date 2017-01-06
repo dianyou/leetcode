@@ -1,12 +1,11 @@
 package leet;
 
 import java.util.ArrayList;
-import java.util.TreeSet;
 
 /**
  * 2016-07-18
  * @author I301431
- *
+ * https://leetcode.com/problems/permutation-sequence/
  */
 public class PermutationSequence
 {

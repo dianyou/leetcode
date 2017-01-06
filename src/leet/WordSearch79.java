@@ -1,4 +1,10 @@
 package leet;
+
+/**
+ * 2016-06-22
+ * @author I301431
+ * https://leetcode.com/problems/word-search/
+ */
 public class WordSearch79 {
 	  public boolean exist(char[][] board, String word) {
 	        if(word.length()==0)
