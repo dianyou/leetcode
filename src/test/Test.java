@@ -1,63 +1,58 @@
 package test;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.FutureTask;
 
 public class Test
 {
-   int Test(int[] A, int[] B,int M, int X ,int Y)
-   {
-	   int aLength =A.length;
-	   int bLength = B.length;
-	   int weightMaxium = 0;
-	   
-	   int aIndex = 0;	//aIndex指示遍历A数组的起始位置
-	   int bIndex = 0;	//bIndex指示遍历B数组的起始位置
-	   int result = 0;
-	   int count = 0;
-	   while(aIndex < aLength-1)
-	   {
-		   weightMaxium = 0;
-		   int aSum = 0;
-		   //一次不超过X个人
-		   int tempCount = 0;
-		   while(aIndex<aLength)
-		   {
-			   if(aSum+A[aIndex] <= Y && tempCount+1<=X)
-			   {
-				   aSum += A[aIndex];
-				   tempCount++;
-				   aIndex ++;
-			   }
-			   else
-				   break;
-		   }
-		   //根据目标楼层数 计数
-		   int oneStepResult = 0;
-		   for(int j =1;j<=M;j++)
-		   {
-			   
-			   for(int i=bIndex;i<aIndex;i++)
-			   {
-				   if(B[i] ==j)
-				   {
-					   oneStepResult++;
-					   break;
-				   }
-			   }
-		   }
-		   
-		   //一次电梯结束，再加上最后落地的一次
-		   result = result + oneStepResult +1;
-		   bIndex = aIndex;
-	   }
-	   return result;
-   }
-	  
-   
+	private static class MyTask implements Callable<String>
+	{
+		public int value;
+		public MyTask(int value)
+		{
+			this.value = value;
+		}
+		
+		@Override
+		public String call() {
+			// TODO Auto-generated method stub
+			System.out.println("Callalbe:"+value);
+			return "return:"+value;
+		}
+		
+	}
    public static void main(String[] args)
    {
-	//   int m =15;
-	   int n=-1;
-	   int nums[] = {1,2,3};
-	   System.out.println(nums[n]);
+	   int n=10;
+	   ExecutorService pool = Executors.newFixedThreadPool(n);
+	   List<FutureTask<String>> list = new LinkedList<FutureTask<String>>();
+	   for(int i=0;i<n;i++)
+	   {
+		   Callable<String> task = new MyTask(i);
+		   FutureTask<String> futureTask = new FutureTask<String>(task);
+		   list.add(futureTask);
+		   pool.submit(futureTask);
+		//	String s =pool.submit(task).get();
+	   }
+	
+	   for(FutureTask<String> task:list)
+	   {
+			String s=null;
+			try {
+				s = task.get();
+				
+			} catch (InterruptedException | ExecutionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		   System.out.println(s);
+	   }
+	   pool.shutdown();
+	   
    }
 }

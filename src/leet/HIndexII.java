@@ -1,5 +1,8 @@
 package leet;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * 2016-07-04
  * @author I301431
@@ -41,6 +44,7 @@ public class HIndexII {
     	HIndexII test = new HIndexII();
     	int res = test.hIndex(citations);
     	System.out.println(res);
+    	ExecutorService pool = Executors.newCachedThreadPool();
     }
 
 }

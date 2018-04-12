@@ -2,6 +2,7 @@ package leet;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -9,7 +10,43 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class TopK347 {
-    public List<Integer> topKFrequent(int[] nums, int k) {
+	
+	public List<Integer> topKFrequent(int[] nums, int k) {
+		if(nums == null || nums.length ==0)
+			return null;
+		Map<Integer,Integer> frequent = new HashMap<Integer,Integer>();
+	
+		for(int i=0;i<nums.length;i++)
+		{
+			frequent.put(nums[i], frequent.getOrDefault(nums[i], 0)+1);
+		}
+		//use the frequency as its index 
+		List<Integer>[] frequents = new ArrayList[nums.length+1];
+		for(Integer i:frequent.keySet())
+		{
+			int index = frequent.get(i);
+			if(frequents[index] == null)
+				frequents[index] = new LinkedList<Integer>();
+			frequents[index].add(i);
+		}
+		
+		List<Integer> result = new LinkedList<Integer>();
+		for(int i=nums.length ;i>0 & k>0;i--)
+		{
+			if(frequents[i] != null)
+			{
+				for(int value:frequents[i])
+				{
+					result.add(value);
+				}
+				k = k-frequents[i].size();
+			}
+		}
+		return result;
+	}
+	
+	//using priority queue, and it saving space
+    public List<Integer> topKFrequentII(int[] nums, int k) {
 	        
         Map<Integer, Integer> map = new HashMap<>();  
         for(int num:nums) {  
